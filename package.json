@@ -1,0 +1,15 @@
+{
+  "name": "njq",
+  "version": "0.0.1",
+  "description": "JS based JSON Processor",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-sxend:sxend/njq.git"
+  },
+  "author": "sxend",
+  "license": "MIT"
+}
