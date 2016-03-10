@@ -11,6 +11,7 @@ deployment:
     branch: master
     commands:
       - export SNAPSHOT_VERSION=$(cat package.json | njq "_.version + '-' + ${CIRCLE_BUILD_NUM} + '-' + '${CIRCLE_SHA1}'") && cat package.json | njq "_.version='${SNAPSHOT_VERSION}',_" > package.json
+      - cat package.json
       - export SNAPSHOT_VERSION=$(cat package.json | njq "_.version + '-' + ${CIRCLE_BUILD_NUM} + '-' + '${CIRCLE_SHA1}'") && npm publish --tag ${SNAPSHOT_VERSION}
   publish:
     tag: /.*/
