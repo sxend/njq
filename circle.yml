@@ -10,7 +10,8 @@ deployment:
   release:
     branch: master
     commands:
-      - cat package.json | njq "_.version=_.version+'-${CIRCLE_BUILD_NUM}',_" > package.json && npm publish
+      - mv package.json package.json.tmp && cat package.json.tmp | njq "_.version=_.version + '-${CIRCLE_BUILD_NUM}',_" > package.json
+      - npm publish
   publish:
     tag: /.*/
     commands:
