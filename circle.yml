@@ -2,6 +2,7 @@ dependencies:
   override:
     - nvm install v4.4.0
     - nvm use v4.4.0 && npm install
+    - envsubst < .npmrc.template > ~/.npmrc
 test:
   override:
     - nvm use v4.4.0 && npm run test
@@ -10,3 +11,7 @@ deployment:
     branch: master
     commands:
       - echo finish.
+  publish:
+    tag: /.*/
+    commands:
+      - npm publish
