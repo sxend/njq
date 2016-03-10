@@ -6,14 +6,3 @@ dependencies:
 test:
   override:
     - nvm use v4.4.0 && npm run test
-deployment:
-  release:
-    branch: master
-    commands:
-      - mv package.json package.json.tmp && cat package.json.tmp | njq "_.version=_.version + '-${CIRCLE_BUILD_NUM}',_" > package.json
-      - npm publish
-  publish:
-    tag: /.*/
-    commands:
-      - cat package.json | njq "_.version='${CIRCLE_TAG}',_" > package.json
-      - npm publish
