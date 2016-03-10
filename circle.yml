@@ -1,0 +1,12 @@
+dependencies:
+  override:
+    - nvm install v4.4.0
+    - nvm use v4.4.0 && npm install
+test:
+  override:
+    - nvm use v4.4.0 && npm run test
+deployment:
+  release:
+    branch: master
+    commands:
+      - echo finish.
