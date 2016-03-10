@@ -7,6 +7,10 @@
   "scripts": {
     "test": "echo test"
   },
+  "keywords": [
+    "json",
+    "processor"
+  ],
   "repository": {
     "type": "git",
     "url": "git@github-sxend:sxend/njq.git"
