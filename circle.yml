@@ -1,7 +1,7 @@
 dependencies:
   override:
     - nvm install v4.4.0
-    - nvm use v4.4.0 && npm install
+    - nvm use v4.4.0 && npm install && npm install -g njq
     - envsubst < .npmrc.template > ~/.npmrc
 test:
   override:
@@ -10,8 +10,10 @@ deployment:
   release:
     branch: master
     commands:
-      - echo finish.
+      - export SNAPSHOT_VERSION=$(cat package.json | njq "_.version + '-' + ${CIRCLE_BUILD_NUM} + '-' + '${CIRCLE_SHA1}'") && cat package.json | njq "_.version='${SNAPSHOT_VERSION}',_" > package.json
+      - export SNAPSHOT_VERSION=$(cat package.json | njq "_.version + '-' + ${CIRCLE_BUILD_NUM} + '-' + '${CIRCLE_SHA1}'") && npm publish --tag ${SNAPSHOT_VERSION}
   publish:
     tag: /.*/
     commands:
+      - cat package.json | njq "_.version='${CIRCLE_TAG}',_" > package.json
       - npm publish
