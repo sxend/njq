@@ -10,7 +10,7 @@ deployment:
   release:
     branch: master
     commands:
-      - export VERSION=$(cat package.json | njq "_.version + '.${CIRCLE_BUILD_NUM}'") && cat package.json | njq "_.version='${VERSION}',_" > package.json && npm publish --tag ${VERSION}
+      - cat package.json | njq "_.version=_.version+'-${CIRCLE_BUILD_NUM}',_" > package.json && npm publish
   publish:
     tag: /.*/
     commands:
