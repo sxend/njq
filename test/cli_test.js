@@ -31,6 +31,14 @@ describe("cli", function() {
       });
     });
   });
+  describe('apply(["_.message"]) with' + json, function() {
+    it('should return ' + json, function(done) {
+      withCli(json, ["_.message"], function test(result) {
+        assert.equal(result, "hello");
+        done();
+      });
+    });
+  });
 });
 
 function withCli(data, args, callback) {
