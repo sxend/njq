@@ -1,6 +1,6 @@
 {
   "name": "njq",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "JS based JSON Processor",
   "main": "njq.js",
   "bin": "bin/njq",
