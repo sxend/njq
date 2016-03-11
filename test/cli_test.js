@@ -1,13 +1,32 @@
 'use strict';
 var assert = require('assert');
-var json = JSON.stringify({
+var sample = {
   message: "hello"
-});
+};
+var json = JSON.stringify(sample);
+var prettyJson = JSON.stringify(sample, null, "  ");
+
 describe("cli", function() {
   describe('apply(["_"]) with' + json, function() {
-    it('should ', function(done) {
+    it('should return ' + json, function(done) {
       withCli(json, ["_"], function test(result) {
         assert.equal(result, json);
+        done();
+      });
+    });
+  });
+  describe('apply(["-p", "_"]) with' + json, function() {
+    it('should return ' + prettyJson, function(done) {
+      withCli(prettyJson, ["-p", "_"], function test(result) {
+        assert.equal(result, prettyJson);
+        done();
+      });
+    });
+  });
+  describe('apply(["--pretty", "_"]) with' + json, function() {
+    it('should return ' + prettyJson, function(done) {
+      withCli(prettyJson, ["--pretty", "_"], function test(result) {
+        assert.equal(result, prettyJson);
         done();
       });
     });

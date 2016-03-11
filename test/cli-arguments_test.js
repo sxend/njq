@@ -8,17 +8,8 @@ describe('cli-arguments function', function() {
       assert.equal(result.commands.length, 0);
       assert.equal(Object.keys(result.options.arg).length, 0);
       assert.equal(result.options.pretty, false);
-      assert.equal(result.options.stream, false);
       assert.equal(result.options.verbose, false);
       assert.equal(result.options.debug, false);
-    });
-  });
-  describe('apply --help, -h options', function() {
-    it('should return options.help true', function() {
-      var result = cliArg(['--help']);
-      assert.equal(result.options.help, true);
-      var result = cliArg(['-h']);
-      assert.equal(result.options.help, true);
     });
   });
   describe('apply --verbose, -v options', function() {
@@ -35,14 +26,6 @@ describe('cli-arguments function', function() {
       assert.equal(result.options.pretty, true);
       var result = cliArg(['-p']);
       assert.equal(result.options.pretty, true);
-    });
-  });
-  describe('apply --stream, -s options', function() {
-    it('should return options.stream true', function() {
-      var result = cliArg(['--stream']);
-      assert.equal(result.options.stream, true);
-      var result = cliArg(['-s']);
-      assert.equal(result.options.stream, true);
     });
   });
   describe('apply --DEBUG options', function() {
