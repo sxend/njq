@@ -6,7 +6,7 @@ describe('cli-arguments function', function() {
     it('should return default options', function() {
       var result = cliArg([]);
       assert.equal(result.commands.length, 0);
-      assert.equal(Object.keys(result.arg).length, 0);
+      assert.equal(Object.keys(result.options.arg).length, 0);
       assert.equal(result.options.pretty, false);
       assert.equal(result.options.stream, false);
       assert.equal(result.options.verbose, false);
@@ -54,14 +54,14 @@ describe('cli-arguments function', function() {
   describe('apply --arg key value options', function() {
     it('should return arg object: {key: "value"}', function() {
       var result = cliArg(['--arg', 'key', 'value']);
-      assert.equal(result.arg['key'], 'value');
+      assert.equal(result.options.arg['key'], 'value');
     });
   });
   describe('apply --arg key1 value1 --arg key2 value2 options', function() {
     it('should return arg object: {key1: "value2", key2: "value2"}', function() {
       var result = cliArg(['--arg', 'key1', 'value1', '--arg', 'key2', 'value2']);
-      assert.equal(result.arg['key1'], 'value1');
-      assert.equal(result.arg['key2'], 'value2');
+      assert.equal(result.options.arg['key1'], 'value1');
+      assert.equal(result.options.arg['key2'], 'value2');
     });
   });
 

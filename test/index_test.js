@@ -8,6 +8,7 @@ var sample = {
   message: "Hello"
 };
 var json = JSON.stringify(sample);
+var _ = require('lodash');
 
 describe('njq (with input json: ' + json + ')', function() {
   describe('apply ""', function() {
@@ -58,6 +59,16 @@ describe('njq (with input json: ' + json + ')', function() {
   describe('apply "_.message"', function() {
     it('should return Hello', function() {
       assert.equal(njq(json, '_.message', options), "Hello");
+    });
+  });
+  describe('apply "_.message + special_arg" with special_arg: ", World." ', function() {
+    it('should return Hello, World.', function() {
+      var special = _.assignIn(options, {
+        arg: {
+          special_arg: ", World."
+        }
+      })
+      assert.equal(njq(json, "_.message + special_arg", special), "Hello, World.");
     });
   });
 });

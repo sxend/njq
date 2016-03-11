@@ -1,6 +1,6 @@
 {
   "name": "njq",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "JS based JSON Processor",
   "main": "njq.js",
   "bin": "bin/njq",
@@ -19,6 +19,7 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^3.5.0",
+    "lodash": "^4.6.1",
     "mocha": "^2.4.5"
   },
   "dependencies": {
