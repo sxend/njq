@@ -1,11 +1,11 @@
 {
   "name": "njq",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "JS based JSON Processor",
   "main": "njq.js",
   "bin": "bin/njq",
   "scripts": {
-    "test": "mocha test/index.js"
+    "test": "mocha test/"
   },
   "keywords": [
     "json",
