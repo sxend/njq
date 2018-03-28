@@ -1,4 +1,4 @@
-var assert = require('assert');
+const assert = require('assert');
 describe("test-template", function() {
   describe('name', function() {
     it('should be test-template', function() {
