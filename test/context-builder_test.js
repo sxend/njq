@@ -1,13 +1,13 @@
-var assert = require('assert');
-var sample = {
+const assert = require('assert');
+const sample = {
   "message": "value"
 };
-var json = JSON.stringify(sample);
-var options = {
+const json = JSON.stringify(sample);
+const options = {
   verbose: true,
   debug: true
 }
-var Context = require('../lib/context-builder.js');
+const Context = require('../lib/context-builder.js');
 
 describe("context-builder", function() {
   describe('apply ' + json, function() {

@@ -1,10 +1,10 @@
-var cliArg = require('../lib/cli-arguments.js');
-var assert = require('assert');
+const cliArg = require('../lib/cli-arguments.js');
+const assert = require('assert');
 
 describe('cli-arguments function', function() {
   describe('apply empty args', function() {
     it('should return default options', function() {
-      var result = cliArg([]);
+      let result = cliArg([]);
       assert.equal(result.commands.length, 0);
       assert.equal(Object.keys(result.options.arg).length, 0);
       assert.equal(result.options.pretty, false);
@@ -14,35 +14,35 @@ describe('cli-arguments function', function() {
   });
   describe('apply --verbose, -v options', function() {
     it('should return options.verbose true', function() {
-      var result = cliArg(['--verbose']);
+      let result = cliArg(['--verbose']);
       assert.equal(result.options.verbose, true);
-      var result = cliArg(['-v']);
+      result = cliArg(['-v']);
       assert.equal(result.options.verbose, true);
     });
   });
   describe('apply --pretty, -p options', function() {
     it('should return options.pretty true', function() {
-      var result = cliArg(['--pretty']);
+      let result = cliArg(['--pretty']);
       assert.equal(result.options.pretty, true);
-      var result = cliArg(['-p']);
+      result = cliArg(['-p']);
       assert.equal(result.options.pretty, true);
     });
   });
   describe('apply --DEBUG options', function() {
     it('should return options.debug true', function() {
-      var result = cliArg(['--DEBUG']);
+      let result = cliArg(['--DEBUG']);
       assert.equal(result.options.debug, true);
     });
   });
   describe('apply --arg key value options', function() {
     it('should return arg object: {key: "value"}', function() {
-      var result = cliArg(['--arg', 'key', 'value']);
+      let result = cliArg(['--arg', 'key', 'value']);
       assert.equal(result.options.arg['key'], 'value');
     });
   });
   describe('apply --arg key1 value1 --arg key2 value2 options', function() {
     it('should return arg object: {key1: "value2", key2: "value2"}', function() {
-      var result = cliArg(['--arg', 'key1', 'value1', '--arg', 'key2', 'value2']);
+      let result = cliArg(['--arg', 'key1', 'value1', '--arg', 'key2', 'value2']);
       assert.equal(result.options.arg['key1'], 'value1');
       assert.equal(result.options.arg['key2'], 'value2');
     });

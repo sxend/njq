@@ -9,7 +9,7 @@ echo '{"message": "Hello, World."}' | njq '_.message'
 ```
 
 ```
-var njq = require('njq');
-var message = njq('{"message": "Hello, World."}', '_.message');
+const njq = require('njq');
+const message = njq('{"message": "Hello, World."}', '_.message');
 console.log(message); // Hello, World.
 ```

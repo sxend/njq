@@ -1,10 +1,10 @@
 'use strict';
-var assert = require('assert');
-var sample = {
+const assert = require('assert');
+const sample = {
   message: "hello"
 };
-var json = JSON.stringify(sample);
-var prettyJson = JSON.stringify(sample, null, "  ");
+const json = JSON.stringify(sample);
+const prettyJson = JSON.stringify(sample, null, "  ");
 
 describe("cli", function() {
   describe('apply(["_"]) with' + json, function() {
