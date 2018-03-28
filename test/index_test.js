@@ -1,14 +1,14 @@
-var njq = require('../lib/index');
-var assert = require('assert');
-var options = {
+const njq = require('../lib/index');
+const assert = require('assert');
+const options = {
   verbose: true,
   debug: true
 };
-var sample = {
+const sample = {
   message: "Hello"
 };
-var json = JSON.stringify(sample);
-var _ = require('lodash');
+const json = JSON.stringify(sample);
+const _ = require('lodash');
 
 describe('njq (with input json: ' + json + ')', function() {
   describe('apply ""', function() {
@@ -63,7 +63,7 @@ describe('njq (with input json: ' + json + ')', function() {
   });
   describe('apply "_.message + special_arg" with special_arg: ", World." ', function() {
     it('should return Hello, World.', function() {
-      var special = _.assignIn(options, {
+      const special = _.assignIn(options, {
         arg: {
           special_arg: ", World."
         }

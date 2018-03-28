@@ -1,6 +1,6 @@
 {
   "name": "njq",
-  "version": "0.0.13",
+  "version": "0.1.0",
   "description": "JS based JSON Processor",
   "main": "njq.js",
   "bin": "bin/njq",
@@ -18,10 +18,10 @@
   "author": "sxend",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^3.5.0",
-    "lodash": "^4.6.1",
-    "mocha": "^2.4.5",
-    "mock-stdin": "^0.3.0"
+    "chai": "^4.1.2",
+    "lodash": "^4.17.5",
+    "mocha": "^5.0.5",
+    "mock-stdin": "^0.3.1"
   },
   "dependencies": {
     "optimist": "^0.6.1"
