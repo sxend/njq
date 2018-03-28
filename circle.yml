@@ -1,6 +1,6 @@
 dependencies:
   override:
-    - nvm install v4.4.0 && nvm alias default v4.4.0 && npm install
+    - nvm install v8.10.0 && nvm alias default v8.10.0 && npm install
 test:
   override:
     - npm run test
