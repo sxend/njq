@@ -2,10 +2,9 @@
   "name": "njq",
   "version": "0.1.1",
   "description": "JS based JSON Processor",
-  "main": "njq.js",
   "bin": "bin/njq",
   "scripts": {
-    "test": "mocha test/"
+    "test": "jest"
   },
   "keywords": [
     "json",
@@ -18,12 +17,14 @@
   "author": "sxend",
   "license": "MIT",
   "devDependencies": {
+    "@types/yargs": "^11.0.0",
     "chai": "^4.1.2",
+    "jest": "^22.4.4",
     "lodash": "^4.17.5",
     "mocha": "^5.0.5",
     "mock-stdin": "^0.3.1"
   },
   "dependencies": {
-    "optimist": "^0.6.1"
+    "yargs": "^11.0.0"
   }
 }
