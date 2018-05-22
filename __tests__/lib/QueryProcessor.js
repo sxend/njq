@@ -34,14 +34,16 @@ describe("njq.QueryProcessor", () => {
         });
         expect(processor.applyQuery({ message: "hello" })).toBe("hellobar");
       });
-      it("if joined unmatched property", () => {
-        const processor = new njq.QueryProcessor({
-          query: "_.message + bazzz",
-          args: { bazzz: "bar" }
+      describe("when use undefined arg value", () => {
+        it("throw error", () => {
+          const processor = new njq.QueryProcessor({
+            query: "_.message + unmatched",
+            args: { foo: "bar" }
+          });
+          expect(() => processor.applyQuery({ message: "hello" })).toThrow();
         });
-        expect(processor.applyQuery({ message: "hello" })).toBe("hellobar");
-      })
-    })
+      });
+    });
   });
   describe("reStringify", () => {
     it("return compact json string", () => {
